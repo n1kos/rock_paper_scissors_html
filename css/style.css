@@ -1,0 +1,57 @@
+p {
+	position: relative;
+	z-index: 1;
+	font-family: PFOnlineTwoPro-Double;
+}
+
+
+.ip-border {
+	    /* border-top: .2em solid transparent; */
+    border-image: 100% 1 1 linear-gradient(90deg, black 99%, transparent 0);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* border-bottom: 0.2em solid transparent; */
+}
+
+.ip-button-text {
+	color: #fff;
+	text-shadow: rgba(0, 0, 0, 0.2) 7px 7px 0px;
+}
+
+.ip-play-button p:first-child:before {
+	content: "";
+	position: absolute;
+	left: 5%;
+	bottom: 0;
+	/*height: 28px;*/
+	width: 90%;
+	border-top: 1px solid magenta;
+}
+
+.ip-play-button p:first-child:after {
+	content: "";
+	position: absolute;
+	left: 5%;
+	top: 0;
+	/*height: 28px;*/
+	width: 90%;
+	border-bottom: 1px solid magenta;
+}
+
+.ip-play-button p:last-child:before {
+	content: "";
+	position: absolute;
+	left: -2%;
+	top: 0;
+	height: 90%;
+	border-left: 1px solid magenta;
+}
+
+.ip-play-button p:last-child:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 90%;
+	border-right: 1px solid magenta;
+}
