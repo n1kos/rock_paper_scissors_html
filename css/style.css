@@ -1,57 +1,92 @@
 p {
 	position: relative;
 	z-index: 1;
-	font-family: PFOnlineTwoPro-Double;
+	font-family: 'PFOnlineTwoPro-Double';
 }
 
+body {
+	background: #000;
+}
 
 .ip-border {
-	    /* border-top: .2em solid transparent; */
-    border-image: 100% 1 1 linear-gradient(90deg, black 99%, transparent 0);
-    padding-top: 1em;
-    padding-bottom: 1em;
-    /* border-bottom: 0.2em solid transparent; */
+	border-top: 2px solid #fff;
+	border-image: 100% 2 2 0 linear-gradient(90deg, #fff 98%, transparent 0);
+	padding-top: 1px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #fff;
+	text-align: center;
+	display: inline-block;
+	font-size: 30pt;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.ip-border:before {
+	content: "";
+	position: absolute;
+	left: -2px;
+	height: 100%;
+	border-left: 2px solid;
+	top: 0;
+}
+
+.ip-border:after {
+	content: "";
+	position: absolute;
+	right: -1px;
+	height: 100%;
+	border-right: 2px solid;
+	top: 0;
 }
 
 .ip-button-text {
 	color: #fff;
-	text-shadow: rgba(0, 0, 0, 0.2) 7px 7px 0px;
+	text-shadow: rgba(0, 0, 0, 0.2) 2px 2px 0px;
 }
 
-.ip-play-button p:first-child:before {
-	content: "";
-	position: absolute;
-	left: 5%;
-	bottom: 0;
-	/*height: 28px;*/
-	width: 90%;
-	border-top: 1px solid magenta;
+.tv {
+    width: 95%;
+    height: 95%;
+    margin: auto;
+    background: linear-gradient( #2c2121, #595b51 );
+    border-radius: 24% / 26%;
+    color: white;
+    text-align: center;
+    text-indent: .1em;
 }
 
-.ip-play-button p:first-child:after {
-	content: "";
-	position: absolute;
-	left: 5%;
-	top: 0;
-	/*height: 28px;*/
-	width: 90%;
-	border-bottom: 1px solid magenta;
+
+.tv:before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    bottom: 21%;
+    right: 0%;
+    left: 0%;
+    background: inherit;
+    opacity: 0.3;
+    border-radius: 72% / 9%;
 }
 
-.ip-play-button p:last-child:before {
-	content: "";
-	position: absolute;
-	left: -2%;
-	top: 0;
-	height: 90%;
-	border-left: 1px solid magenta;
+#main-wrapper {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 100;
 }
-
-.ip-play-button p:last-child:after {
-	content: "";
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 90%;
-	border-right: 1px solid magenta;
-}
+/*
+#tv-bdr {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: url("../resources/images/bg2.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    z-index: 10;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}*/
