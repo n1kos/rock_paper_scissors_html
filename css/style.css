@@ -10,14 +10,12 @@ body {
 
 .ip-border {
     border-image: linear-gradient(#fff, #fff) 2% 0% 2% 0%;
-    padding-top: 1px;
-    padding-bottom: 10px;
     text-align: center;
     display: inline-block;
     font-size: 30pt;
-    padding-left: 20px;
-    padding-right: 20px;
+    z-index: -9;
     border-width: 2px;
+    margin: 0;
 }
 
 .ip-border:before {
@@ -29,6 +27,33 @@ body {
     top: -2px;
     border-width: 2px;
     width: 100%;
+    z-index: -1;
+}
+
+.ip-border-shadow:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    border-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)) 0% 1% 0% 1%;
+    top: 0px;
+    border-width: 2px;
+    width: 100%;
+    z-index: -1;
+    
+}
+
+
+.ip-border-shadow:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    border-image: linear-gradient(#ccc, #ccc) 1% 0% 1% 0%;
+    top: 0px;
+    border-width: 2px;
+    width: 100%;
+    z-index: -1;
 }
 /*.ip-border:after {
 	content: "";
@@ -55,7 +80,6 @@ body {
     text-indent: .1em;
 }
 
-
 .tv:before {
     content: '';
     position: absolute;
@@ -66,6 +90,7 @@ body {
     background: inherit;
     opacity: 0.3;
     border-radius: 72% / 9%;
+    z-index: -1;
 }
 
 #main-wrapper {
