@@ -16,7 +16,6 @@ span {
     right: 0px;
     bottom: 0px;
     z-index: 100;
-    transition: background-color 0.5s ease;
 }
 
 #ip-content, #ip-loading {
@@ -33,10 +32,16 @@ span {
     color: white;
     text-align: center;
     text-indent: .1em;
+    transition: opacity 0.5s ease;
+    /*opacity: 1;*/
 }
 
 .ip-tv.ip-is-loaded {
 	background: linear-gradient( red, white );
+}
+
+.ip-tv.ip-is-loaded {
+	/*opacity: 1;*/
 }
 
 .ip-tv.ip-is-paper {
@@ -49,6 +54,10 @@ span {
 
 .ip-tv.ip-is-scissors {
 	background: linear-gradient( yellow, white );
+}
+
+.ip-is-hidden {
+	visibility: hidden;
 }
 
 .ip-tv:before {
@@ -158,7 +167,7 @@ span {
 }
 
 .ip-logo {
-	    text-align: left;
+	text-align: left;
     display: inline-block;
     width: 100%;
     font-size: 4em;
@@ -168,12 +177,13 @@ span {
     position: relative;
     left: 20px;
     top: -20px;
+    transform: skewY(-15deg);
 }
 
 .ip-logo > span {
-	    display: inline-block;
+	display: inline-block;
     width: 100%;
-    transform: skewY(-15deg);
+    /*transform: skewY(-15deg);*/
 }
 
 /* Smartphones (portrait and landscape) ----------- */
