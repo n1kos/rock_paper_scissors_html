@@ -9,35 +9,35 @@ body {
 }
 
 .ip-border {
-	border-top: 2px solid #fff;
-	border-image: 100% 2 2 0 linear-gradient(90deg, #fff 98%, transparent 0);
-	padding-top: 1px;
-	padding-bottom: 10px;
-	border-bottom: 2px solid #fff;
-	text-align: center;
-	display: inline-block;
-	font-size: 30pt;
-	padding-left: 20px;
-	padding-right: 20px;
+    border-image: linear-gradient(#fff, #fff) 2% 0% 2% 0%;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30pt;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-width: 2px;
 }
 
 .ip-border:before {
-	content: "";
-	position: absolute;
-	left: -2px;
-	height: 100%;
-	border-left: 2px solid;
-	top: 0;
+    content: "";
+    position: absolute;
+    left: -2px;
+    height: 100%;
+    border-image: linear-gradient(#fff, #fff) 0% 1% 0% 1%;
+    top: -2px;
+    border-width: 2px;
+    width: 100%;
 }
-
-.ip-border:after {
+/*.ip-border:after {
 	content: "";
 	position: absolute;
 	right: -1px;
 	height: 100%;
 	border-right: 2px solid;
 	top: 0;
-}
+}*/
 
 .ip-button-text {
 	color: #fff;
