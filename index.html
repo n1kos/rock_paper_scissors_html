@@ -12,6 +12,8 @@
 		<title></title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/effects.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/PFOnlineTwoPro-Double.css">
 		<link rel="stylesheet" type="text/css" href="css/PFOnlineTwoPro-Single.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -24,16 +26,32 @@
         <![endif]-->
 		<!-- Add your site or application content here -->
 
-	<div id="main-wrapper" class="tv">			
-		<div class="ip-play-button">
-			<span class="ip-border">
-				<span class="ip-border-shadow">
-					<span class="ip-button-text">yuyuyuy</span>
-				</span>
-			</span>
+		<div id="ip-main-wrapper" class="ip-tv">
+			<div id="ip-loading" class="ip-loading">
+				<div class="ip-center">
+					<span class="ip-loader glitch"  data-text="loading"></span>
+				</div>
+			</div>
+			<div id="ip-content" class="ip-content">
+				<div class="ip-center">
+					<div class="ip-circle">
+						<p class="ip-logo">
+							<span>rock</span>
+							<span>paper</span>
+							<span>scissors</span>
+						</p>
+					</div>
+				</div>
+				<div class="ip-button-container">
+					<span class="ip-broken-border">
+						<span class="ip-broken-border-shadow">
+							<span class="ip-button-text ip-button">begin</span>
+							<span class="fa fa-arrow-right ip-button-text hide-sm"></span>
+						</span>
+					</span>
+				</div>
+			</div>
 		</div>
-		
-	</div>
 
 
 
@@ -43,6 +61,7 @@
 		<script>
 		window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
 		</script>
+		<script type="text/javascript" src="scripts/script.js"></script>		
 	</body>
 
 	</html>
