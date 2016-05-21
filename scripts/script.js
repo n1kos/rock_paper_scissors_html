@@ -18,16 +18,24 @@
 
     /**
      *
-     * cross browser event listener adding
+     * cross browser event listener handling
      *
      */    
-    var pfx = ["webkit", "moz", "MS", "o", ""];
-    function PrefixedEvent(element, type, callback) {
-        for (var p = 0; p < pfx.length; p++) {
-            if (!pfx[p]) type = type.toLowerCase();
-            element.addEventListener(pfx[p]+type, callback, false);
-        }
-    };
+    function addEvent( obj, type, fn ) {
+      if ( obj.attachEvent ) {
+        obj['e'+type+fn] = fn;
+        obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+        obj.attachEvent( 'on'+type, obj[type+fn] );
+      } else
+        obj.addEventListener( type, fn, false );
+    }
+    function removeEvent( obj, type, fn ) {
+      if ( obj.detachEvent ) {
+        obj.detachEvent( 'on'+type, obj[type+fn] );
+        obj[type+fn] = null;
+      } else
+        obj.removeEventListener( type, fn, false );
+    }
 
     /**
       *
@@ -39,6 +47,28 @@
         callback.call(scope, i, array[i]); // passes back stuff we need
       }
     };
+
+    /**
+     *
+     * register listenr, run, forget
+     *
+     */
+    function once(target, type, listener, useCapture) {
+        var capture = !!useCapture;
+        
+        addEvent(target, type, handler, capture);
+
+        function deregister() {
+            removeEvent(target, type, handler, capture);
+        }
+
+        function handler() {
+            deregister();
+            return listener.apply(this, arguments);
+        }
+
+        return deregister;
+    }
 
     /**
      *
@@ -57,6 +87,7 @@
             catch (err) {
                 console.log('out of elements');
             }
+            // removeEvent(value, "animationend", arguments.callee);
         };
 
         /*  loop thru each element and add cross-browser event listener for animation end */        
@@ -65,8 +96,9 @@
             if (index == 0) {
                 value.classList.add("animated", animationType);
             }
-            PrefixedEvent(value, "animationend", boundFunction.bind(this, index, value), true);
-            value.removeEventListener("animationend", boundFunction, true);
+            once(value, "animationend", boundFunction.bind(this, index, value));
+            // addEvent(value, "animationend", boundFunction.bind(this, index, value));
+            // removeEvent(value, "animationend", boundFunction);
         });
     };
 
