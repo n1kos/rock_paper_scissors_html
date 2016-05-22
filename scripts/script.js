@@ -28,14 +28,33 @@
         obj.attachEvent( 'on'+type, obj[type+fn] );
       } else
         obj.addEventListener( type, fn, false );
-    }
+    };
+
     function removeEvent( obj, type, fn ) {
       if ( obj.detachEvent ) {
         obj.detachEvent( 'on'+type, obj[type+fn] );
         obj[type+fn] = null;
       } else
         obj.removeEventListener( type, fn, false );
-    }
+    };
+
+    function findUpTag (el, evt) {
+        try {
+            if (el.dataset.eventfull != "true") {
+                while (el.parentNode) {
+                    el = el.parentNode;
+                    if (el.dataset.eventfull == "true")
+                        return el;
+                }
+                evt.stopImmediatePropagation();
+                return null;
+            }
+            return el;
+        } catch (err) {
+            evt.stopImmediatePropagation();
+            return null;
+        }
+    };
 
     /**
       *
@@ -111,7 +130,6 @@
                 value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
                 value.classList.add("infinite");
             }
-
             // if (index == 0 && synctype == "sync") {
             //     value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
             // } else if (synctype == "async" ) {
@@ -125,7 +143,13 @@
             // }
             // addEvent(value, "animationend", boundFunction.bind(this, index, value));
             // removeEvent(value, "animationend", boundFunction);
-        });       
+        });     
+                   try {
+                finalCallback();
+            } catch (errr) {
+                //
+            }
+  
     };
 
     function onReady(callback) {
@@ -175,15 +199,66 @@
 
         TV.addHomePageAnim = function () {
             var t = this;
-            animateItems("ip-is-opt", ["bounce", "tada", "wobble"], "async");
+            animateItems("ip-is-topt", ["bounce", "tada", "wobble"], "async", function() {
+                document.getElementsByClassName('ip-button-anim-wrap')[0].className += " animated flash infinite";
+            });
             return t;
         };
         
-        TV.init().showHomePage();
+        TV.showGameOptions = function() {
+            var t = this;
+            return t;
+        };
+
+        TV.showSelection = function () {
+             var t = this;
+
+             return t;
+        };
+
+        TV.addInteraction = function () {
+            var t = this;
+
+            var listfunctions = {
+                "ip-button-play" : function() {
+                    alert("nifniuweifn");
+                    t.showSelection();
+                },
+                "ip-button-select-rock" : function(){
+                    alert("user selected rock");
+                },
+                "ip-button-select-paper" : function(){
+                    alert("user selected paper");
+                },
+                "ip-button-select-scissors" : function(){
+                    alert("user selected scissors");
+                }
+            };
+            var handlerAll = function (evt) {
+                var clickeElm = findUpTag(evt.target, evt);
+                
+                if (clickeElm != null) {
+                    listfunctions[clickeElm.classList.item(clickeElm.classList.length -1).toString()]();
+
+                    // switch (clickeElm) {
+                    //     case classList.contains("ip-button-play") :
+                    //         alert("got it");
+                    //         break;
+                    //     default :
+                    //         alert("fiwejfiowjfwioefjw got it");
+                    // }
+                }
+            };
+
+            addEvent(document.getElementById('ip-content'), "click", handlerAll);
+            return t;
+        };
+
+
+        TV.init().showHomePage().addInteraction();
         
         window.setTimeout(function(){
-            TV.addHomePageAnim();
-            // animateItems("ip-logo", ["bounce", "not", "tada", "not" ,"wobble ", "not"]);
+            TV.addHomePageAnim();            
         }, 8000);
     });    
 })();

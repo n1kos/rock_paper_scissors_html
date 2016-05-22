@@ -18,6 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="css/PFOnlineTwoPro-Double.css">
 		<link rel="stylesheet" type="text/css" href="css/PFOnlineTwoPro-Single.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="scripts/script.js"></script>
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	</head>
 
@@ -43,34 +44,51 @@
 					<div class="ip-circle">
 						<p class="ip-logo">
 							<span class="ip-is-opaque ip-logo-ops ip-is-topt">rock</span>
-							<span class="ip-is-opaque ip-logo-ops ip-is-opt ip-is-rock"></span>
+							<span class="ip-is-opaque mouse-bg ip-logo-ops ip-is-opt ip-is-rock"></span>
 							<span class="ip-is-opaque ip-logo-ops ip-is-topt">paper</span>
-							<span class="ip-is-opaque ip-logo-ops ip-is-opt ip-is-paper"></span>
+							<span class="ip-is-opaque mouse-bg ip-logo-ops ip-is-opt ip-is-paper"></span>
 							<span class="ip-is-opaque ip-logo-ops ip-is-topt">scissors</span>
-							<span class="ip-is-opaque ip-logo-ops ip-is-opt ip-is-scissors"></span>
+							<span class="ip-is-opaque mouse-bg ip-logo-ops ip-is-opt ip-is-scissors"></span>
 						</p>
 					</div>
 				</div>
+				<div style="
+							    display: flex;
+							    align-items: center;
+							    width: 100%;
+							    height: 100%;
+							    position: absolute;
+							    top: 0;
+							    left: 0;
+							">
+												<span class="ip-select-weapn" style="
+							    display: inline-block;
+							    width: 100%;
+							    height: 45%;
+							">
+						<span class="ip-header">choose your weapon</span>
+						<ul class="ip-weapn-list">
+							<li class="ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-rock ip-theme-rock"></li>
+							<li class="ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-paper ip-theme-paper"></li>
+							<li class="ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-scissors ip-theme-scissors"></li>
+						</ul>
+					</span>
+				</div>
 				<div class="ip-button-container">
-					<span class="ip-broken-border">
+					<span data-eventfull="true" class="ip-broken-border ip-button-play">
 						<span class="ip-broken-border-shadow">
-							<span class="ip-button-text ip-button">begin</span>
-							<span class="fa fa-arrow-right ip-button-text hide-sm"></span>
+							<span class="ip-button-anim-wrap">
+								<span class="ip-button-text ip-button">begin</span>
+								<span class="fa fa-arrow-right ip-button-text hide-sm"></span>
+							</span>
 						</span>
 					</span>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script>
-		window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
-		</script>
-		<script type="text/javascript" src="scripts/script.js"></script>		
+		<script type="text/javascript" src="scripts/vendors/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/vendors/mouse.parallax.js"></script>
+		<script type="text/javascript" src="scripts/jqdepscript.js"></script>
 	</body>
 
 	</html>
