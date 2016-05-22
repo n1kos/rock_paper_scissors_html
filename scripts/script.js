@@ -101,14 +101,28 @@
         forEach(myNodeList, function (index, value) {
             // console.log(index, value); // passes index + value back!
             // value.className.replace(/animated .*/,"");
-            if (index == 0) {
-                value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
-            }
+            
             if (synctype == "sync" ) {
+                if (index == 0) {
+                    value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
+                } 
                 once(value, "animationend", boundFunction.bind(this, index, value));
-            } else {
+            } else if (synctype == "async" ) {
+                value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
                 value.classList.add("infinite");
             }
+
+            // if (index == 0 && synctype == "sync") {
+            //     value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
+            // } else if (synctype == "async" ) {
+            //     value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
+            // }
+
+            // if (synctype == "sync" ) {
+            //     once(value, "animationend", boundFunction.bind(this, index, value));
+            // } else {
+            //     value.classList.add("infinite");
+            // }
             // addEvent(value, "animationend", boundFunction.bind(this, index, value));
             // removeEvent(value, "animationend", boundFunction);
         });       
