@@ -166,7 +166,11 @@
     onReady(function () {
 
         var TV = {
-            isLoading : true
+            isLoading : true,
+            userSelection : "",
+            userLastSelection : "",
+            cpuSelection : "",
+            cpuLastSelection : ""
         };
 
 
@@ -188,7 +192,7 @@
         TV.showHomePage = function () {
             var t = this;
             window.setTimeout(function(){
-                document.getElementById('ip-bg-audio').play();
+                //document.getElementById('ip-bg-audio').play();
                 document.getElementsByClassName("ip-tv")[0].classList.add("ip-is-loaded");
                 showOpacity('ip-main-wrapper', true);
                 document.getElementById("ip-content").classList.remove("ip-is-hidden");
@@ -212,26 +216,53 @@
 
         TV.showSelection = function () {
              var t = this;
-
+             document.getElementsByClassName("ip-is-disappeared")[0].classList.remove("ip-is-disappeared");
+             document.getElementsByClassName("ip-logo")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-circle")[0].classList.add("ip-has-shadow");
+             document.getElementsByClassName("ip-button-play")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-button-cancel")[0].classList.remove("ip-is-disappeared");
              return t;
         };
+
+        TV.showMenu = function () {
+             var t = this;
+             document.getElementsByClassName("ip-select-weapon")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-logo")[0].classList.remove("ip-is-disappeared");
+             document.getElementsByClassName("ip-circle")[0].classList.remove("ip-has-shadow");
+             document.getElementsByClassName("ip-button-play")[0].classList.remove("ip-is-disappeared");
+             document.getElementsByClassName("ip-button-cancel")[0].classList.add("ip-is-disappeared");
+             return t;
+        };
+
 
         TV.addInteraction = function () {
             var t = this;
 
             var listfunctions = {
                 "ip-button-play" : function() {
-                    alert("nifniuweifn");
+                    // alert("nifniuweifn");
                     t.showSelection();
                 },
-                "ip-button-select-rock" : function(){
+
+                "ip-button-cancel" : function () {
+                     t.showMenu();
+                },
+
+                "ip-theme-rock" : function(){
+                    t.userSelection = "0";
                     alert("user selected rock");
+                    document.getElementById("ip-ui-choice").src = "resources/sounds/selections/paper.mp3";
+                    document.getElementById("ip-ui-choice").play();
                 },
-                "ip-button-select-paper" : function(){
+
+                "ip-theme-paper" : function(){
                     alert("user selected paper");
+                    t.userSelection = "1";
                 },
-                "ip-button-select-scissors" : function(){
+
+                "ip-theme-scissors" : function(){
                     alert("user selected scissors");
+                    t.userSelection = "1";
                 }
             };
             var handlerAll = function (evt) {
