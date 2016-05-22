@@ -1,6 +1,8 @@
 body {
 	background: #000;
 	font-size: 1em;
+	width: 100%;
+	height: 100%;
 }
 
 span {
@@ -158,7 +160,7 @@ span {
     color: #fff;
     text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
     font-weight: bold;
-    font-size: 2.6em;
+    font-size: 1.5em;
     display: inline;
     text-transform: uppercase;
 }
@@ -254,10 +256,19 @@ span {
 							    left: 0
 }
 
-.ip-list-weapons, .ip-list-countdown {
+.ip-countdown {
+	display: block;
+}
+
+.ip-list-weapons {
     display: inline-block;
     width: 100%;
-    height: 45%;
+	height: 57%;
+}
+ .ip-list-countdown {
+    height: 100%;
+    display: block;
+    width: 100%;
 }
 
 .ip-is-rock:before {
@@ -291,6 +302,7 @@ span {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    margin: 0 3em 0;
 }
 
 .animamamama {
@@ -362,7 +374,7 @@ span {
 .ip-countdown-list {
     list-style: none;
     width: 100%;
-    display: inline-block;
+    display: block;
     align-items: center;
     text-align: center;
     margin: 0;
@@ -370,6 +382,29 @@ span {
     position: relative;
     top: 0;
     left: 0;
+    font-size: 2em;
+    text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;    
+}
+
+.ip-weapon-list {
+    height: 100%;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    margin-top: 108px;
+}
+
+.ip-weapon-list span {
+	position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    font-size: 2em;
+    text-transform: uppercase;
+	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
 }
 
 .ip-countdown-items {
@@ -378,8 +413,32 @@ span {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
     opacity: 0;
+}
+
+.ip-header {
+	font-size: 1.5em;
+	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
+	text-transform: uppercase;
+}
+
+
+.ip-list-countdown > .ip-header {
+	font-size: 4em;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 20%;
+}
+
+
+.trapezoid {
+  width: 200px;
+  height: 200px;
+  background: red;
+  transform: perspective(10px) rotateX(1deg);
+  margin: 50px;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -389,3 +448,12 @@ span {
 		display: none;
 	}
 }
+
+@media only screen and (max-device-width : 850px)  {
+	/* Styles */
+	.ip-list-weapons, .ip-list-countdown {
+    height: 90%;
+	}
+}
+
+
