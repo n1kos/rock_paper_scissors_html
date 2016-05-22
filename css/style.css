@@ -60,6 +60,10 @@ span {
 	visibility: hidden;
 }
 
+.ip-is-opaque {
+	opacity: 0;
+}
+
 .ip-tv:before {
     content: '';
     position: absolute;
@@ -171,19 +175,64 @@ span {
     display: inline-block;
     width: 100%;
     font-size: 4em;
-    line-height: 57px;
+    line-height: 20px;
     margin: auto;
     text-transform: uppercase;
     position: relative;
     left: 20px;
     top: -20px;
     transform: skewY(-15deg);
+    text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
 }
 
 .ip-logo > span {
 	display: inline-block;
     width: 100%;
     /*transform: skewY(-15deg);*/
+}
+
+.ip-logo > span:nth-child(odd) {
+	z-index: 10;
+}
+
+.ip-logo > span:nth-child(even) {
+	z-index: 8;
+}
+
+.ip-is-opt {
+	position: relative;
+	/*z-index: 1;*/
+}
+
+.ip-is-opt:before {
+    display: inline;
+    width: 161px;
+    height: 159px;
+    position: absolute;
+    z-index: -1;
+    overflow: visible;
+    content: "";
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ip-is-rock:before {
+	background-image: url("../resources/images/opt1.png");
+	    top: -133px;
+    right: 150px;
+}
+
+.ip-is-paper:before {
+	background-image: url("../resources/images/opt3.png");
+	    top: -196px;
+    right: 102px;
+}
+
+.ip-is-scissors:before {
+	background-image: url("../resources/images/opt2.png");
+	    top: -219px;
+    right: 57px;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
