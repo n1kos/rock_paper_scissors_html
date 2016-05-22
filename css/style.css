@@ -443,9 +443,9 @@ span {
 
 .my-trapezoid-left  {
     width: 6%;
-    height: 104%;
-    background: wheat;
-    transform: translate3d(-100%,-18px,0) rotateZ(-169deg);
+    height: 140%;
+    background:#431E4C;
+    transform: translate3d(-100%,-140px,0) rotateZ(-169deg);
     position: absolute;
     top: 0;
     transition: all 2s ease;
@@ -459,9 +459,9 @@ span {
 
 .my-trapezoid-right  {
     width: 6%;
-    height: 104%;
+    height: 200%;
     background: wheat;
-    transform: translate3d(0px,3px,0) rotateZ(-349deg);
+    transform: translate3d(-53px,-123px,0) rotateZ(-349deg);
     position: absolute;
     top: 0;
     transition: all 2s ease;

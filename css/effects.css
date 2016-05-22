@@ -209,7 +209,7 @@
   }
   100% {
     width: 100%;
-    transform : translate3d(-99%,-91px,0) rotateZ(-169deg);
+    /*transform : translate3d(-99%,-91px,0) rotateZ(-169deg);*/
   }
 }
 
@@ -219,7 +219,7 @@
   }
   100% {
     width: 100%;
-    transform : translate3d(-4px,55px,0) rotateZ(-349deg);
+    /*transform : translate3d(-4px,55px,0) rotateZ(-349deg);*/
   }
 }
 
