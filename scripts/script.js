@@ -75,12 +75,14 @@
      * make any node list to animate its elements one by one. removes listeners when done
      *
      */    
-    function animateItemsSequence (parentNodeClass, animationType, finalCallback) {
-        var myNodeList = document.getElementsByClassName(parentNodeClass)[0].children;
+    function animateItems (nodeClass, animationType, synctype, finalCallback) {
+        var myNodeList = document.getElementsByClassName(nodeClass);
         
         /* named function so it can be removed from the listener */       
         var boundFunction = function (index, value) {
             // value.classList.remove("animated");
+            //value.className.replace(/animated .*/,"");
+            value.classList.remove(value.classList.item(value.classList.length-1));
             try {
                 myNodeList[index+1].classList.add("animated", typeof animationType == "string" ? animationType : animationType[index+1]);
             }
@@ -98,10 +100,15 @@
         /*  loop thru each element and add cross-browser event listener for animation end */        
         forEach(myNodeList, function (index, value) {
             // console.log(index, value); // passes index + value back!
+            // value.className.replace(/animated .*/,"");
             if (index == 0) {
                 value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
             }
-            once(value, "animationend", boundFunction.bind(this, index, value));
+            if (synctype == "sync" ) {
+                once(value, "animationend", boundFunction.bind(this, index, value));
+            } else {
+                value.classList.add("infinite");
+            }
             // addEvent(value, "animationend", boundFunction.bind(this, index, value));
             // removeEvent(value, "animationend", boundFunction);
         });       
@@ -127,6 +134,7 @@
 
         TV.init = function() {
             this.load();
+            return this;
         };
 
         TV.load = function () {
@@ -135,7 +143,8 @@
             show('ip-loading', false);            
             showOpacity('ip-main-wrapper', false);
             t.isLoading = false;
-            t.showHomePage();
+            // t.showHomePage();
+            return t;
         };
         
         TV.showHomePage = function () {
@@ -145,10 +154,22 @@
                 document.getElementsByClassName("ip-tv")[0].classList.add("ip-is-loaded");
                 showOpacity('ip-main-wrapper', true);
                 document.getElementById("ip-content").classList.remove("ip-is-hidden");
-                animateItemsSequence("ip-logo", ["fadeIn", "bounceInDown", "fadeIn", "bounceInDown" ,"fadeIn", "bounceInDown"]);
+                animateItems("ip-logo-ops", ["fadeIn", "bounceInDown", "fadeIn", "bounceInDown" ,"fadeIn", "bounceInDown"], "sync");
             }, 300);
+            return t;
         };
 
-        TV.init();
+        TV.addHomePageAnim = function () {
+            var t = this;
+            animateItems("ip-is-opt", ["bounce", "tada", "wobble"], "async");
+            return t;
+        };
+        
+        TV.init().showHomePage();
+        
+        window.setTimeout(function(){
+            TV.addHomePageAnim();
+            // animateItems("ip-logo", ["bounce", "not", "tada", "not" ,"wobble ", "not"]);
+        }, 8000);
     });    
 })();
