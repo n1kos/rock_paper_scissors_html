@@ -75,16 +75,21 @@
      * make any node list to animate its elements one by one. removes listeners when done
      *
      */    
-    function animateItemsSequence (parentNodeClass, animationType) {
+    function animateItemsSequence (parentNodeClass, animationType, finalCallback) {
         var myNodeList = document.getElementsByClassName(parentNodeClass)[0].children;
         
         /* named function so it can be removed from the listener */       
         var boundFunction = function (index, value) {
             // value.classList.remove("animated");
             try {
-                myNodeList[index+1].classList.add("animated", animationType);
+                myNodeList[index+1].classList.add("animated", typeof animationType == "string" ? animationType : animationType[index+1]);
             }
             catch (err) {
+                try {
+                    finalCallback();
+                } catch (errr) {
+                    //
+                }
                 console.log('out of elements');
             }
             // removeEvent(value, "animationend", arguments.callee);
@@ -94,12 +99,12 @@
         forEach(myNodeList, function (index, value) {
             // console.log(index, value); // passes index + value back!
             if (index == 0) {
-                value.classList.add("animated", animationType);
+                value.classList.add("animated", typeof animationType == "string" ? animationType : animationType[index]);
             }
             once(value, "animationend", boundFunction.bind(this, index, value));
             // addEvent(value, "animationend", boundFunction.bind(this, index, value));
             // removeEvent(value, "animationend", boundFunction);
-        });
+        });       
     };
 
     function onReady(callback) {
@@ -114,15 +119,36 @@
     }
 
     onReady(function () {
-        show('ip-content', true);
-        show('ip-loading', false);
-        showOpacity('ip-main-wrapper', false);
-        window.setTimeout(function(){
-            document.getElementsByClassName("ip-tv")[0].classList.add("ip-is-loaded");
-            showOpacity('ip-main-wrapper', true);
-            document.getElementById("ip-content").classList.remove("ip-is-hidden");
-            animateItemsSequence("ip-logo", "fadeIn");
-        }, 300);
 
+        var TV = {
+            isLoading : true
+        };
+
+
+        TV.init = function() {
+            this.load();
+        };
+
+        TV.load = function () {
+            var t = this;
+            show('ip-content', true);
+            show('ip-loading', false);            
+            showOpacity('ip-main-wrapper', false);
+            t.isLoading = false;
+            t.showHomePage();
+        };
+        
+        TV.showHomePage = function () {
+            var t = this;
+            window.setTimeout(function(){
+                document.getElementById('ip-bg-audio').play();
+                document.getElementsByClassName("ip-tv")[0].classList.add("ip-is-loaded");
+                showOpacity('ip-main-wrapper', true);
+                document.getElementById("ip-content").classList.remove("ip-is-hidden");
+                animateItemsSequence("ip-logo", ["fadeIn", "bounceInDown", "fadeIn", "bounceInDown" ,"fadeIn", "bounceInDown"]);
+            }, 300);
+        };
+
+        TV.init();
     });    
 })();
