@@ -170,7 +170,8 @@
             userSelection : "",
             userLastSelection : "",
             cpuSelection : "",
-            cpuLastSelection : ""
+            cpuLastSelection : "",
+            isMute : false
         };
 
 
@@ -234,6 +235,16 @@
              return t;
         };
 
+        TV.showCountdown = function () {
+             var t = this;
+             document.getElementsByClassName("ip-select-weapon")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-circle")[0].classList.remove("ip-has-shadow");
+             document.getElementsByClassName("ip-button-cancel")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-countdown")[0].classList.remove("ip-is-disappeared");
+            animateItems("ip-countdown-items", "animamamama", "sync");
+             return t;
+        };
+
 
         TV.addInteraction = function () {
             var t = this;
@@ -241,35 +252,66 @@
             var listfunctions = {
                 "ip-button-play" : function() {
                     // alert("nifniuweifn");
+                    if (!t.isMute) {
+                         document.getElementById("ip-ui-audio").play();
+                    }  
                     t.showSelection();
                 },
 
                 "ip-button-cancel" : function () {
+                    if (!t.isMute) {
+                         document.getElementById("ip-ui-audio").play();
+                    }                      
                      t.showMenu();
                 },
 
                 "ip-theme-rock" : function(){
-                    t.userSelection = "0";
-                    alert("user selected rock");
-                    document.getElementById("ip-ui-choice").src = "resources/sounds/selections/paper.mp3";
-                    document.getElementById("ip-ui-choice").play();
+                     TV.showCountdown();
+                    // t.userSelection = "0";
+                    // // alert("user selected rock");
+                    // if (!t.isMute) {
+                    //     document.getElementById("ip-ui-choice").src = "resources/sounds/selections/rock.mp3";
+                    //     document.getElementById("ip-ui-choice").play();
+                    // }
                 },
 
                 "ip-theme-paper" : function(){
-                    alert("user selected paper");
-                    t.userSelection = "1";
+                     TV.showCountdown();
+                    // // alert("user selected paper");
+                    // t.userSelection = "1";
+                    // if (!t.isMute) {
+                    //     document.getElementById("ip-ui-choice").src = "resources/sounds/selections/paper.mp3";
+                    //     document.getElementById("ip-ui-choice").play();
+                    // }                    
                 },
 
                 "ip-theme-scissors" : function(){
-                    alert("user selected scissors");
-                    t.userSelection = "1";
+                     TV.showCountdown();
+                    // // alert("user selected scissors");
+                    // t.userSelection = "1";
+                    // if (!t.isMute) {
+                    //     document.getElementById("ip-ui-choice").src = "resources/sounds/selections/scissors.mp3";
+                    //     document.getElementById("ip-ui-choice").play();
+                    // }                    
                 }
             };
+
             var handlerAll = function (evt) {
                 var clickeElm = findUpTag(evt.target, evt);
                 
                 if (clickeElm != null) {
-                    listfunctions[clickeElm.classList.item(clickeElm.classList.length -1).toString()]();
+                    var cachedSelection = clickeElm.classList.item(clickeElm.classList.length -1).toString();
+                    listfunctions[cachedSelection]();
+                    t.userSelection = cachedSelection.replace(/ip-theme-/, "");
+                    try {
+                        if (!t.isMute) {
+                            document.getElementById("ip-ui-choice").src = "resources/sounds/selections/" + t.userSelection + ".mp3";
+                            document.getElementById("ip-ui-choice").play();
+                        }                        
+                    }
+                    catch (err) {
+                        //click was ui?
+                    }
 
                     // switch (clickeElm) {
                     //     case classList.contains("ip-button-play") :
