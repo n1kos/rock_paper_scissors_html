@@ -64,6 +64,10 @@ span {
 	opacity: 0;
 }
 
+.ip-is-opaque.animated {
+	opacity: 1;
+}
+
 .ip-tv:before {
     content: '';
     position: absolute;
