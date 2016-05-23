@@ -265,6 +265,7 @@
              document.getElementsByClassName("ip-swipe-left")[0].classList.add("ip-start-swipe-l");
              document.getElementsByClassName("ip-swipe-right")[0].classList.add("ip-start-swipe-r");
             // animateItems("ip-countdown-items", "animamamama", "sync");
+            TV.showUserSelection().showCPUSelection().determineWinner().showResultScreen();
              return t;
         };
 
@@ -276,8 +277,9 @@
 
         TV.showCPUSelection = function () {
              var t = this;            
-             t.cpuSelection = getRandomInt(0,2);
+             t.cpuSelection = getRandomInt(1,3);
              document.getElementById("ip-cpu-fighter").classList.add("ip-fighter-" +  t.cpuSelection);
+             document.getElementsByClassName("ip-swipe-right")[0].classList.add("ip-theme-" +  t.cpuSelection);
              return t;
         };
 
@@ -386,27 +388,28 @@
                 var audioSrc = "";
                 if (clickeElm != null) {
                     var cachedSelection = clickeElm.classList.item(clickeElm.classList.length -1).toString();
+
                     listfunctions[cachedSelection]();
-                    t.userSelection = parseInt(clickeElm.dataset.weight);
-                    audioSrc = cachedSelection.replace(/ip-theme-/, "");
-                    var aud =  document.getElementById("ip-ui-choice");
-                    aud.src = "resources/sounds/selections/" +audioSrc + ".mp3";
-                    try {
-                        if (t.isMute) aud.muted = true;
-                        aud.play();
-                        aud.onended = function() {
-                            TV.showCountdown();                      
+                    if (cachedSelection != "ip-button-play" && cachedSelection != "ip-button-cancel") {
+                        t.userSelection = parseInt(clickeElm.dataset.weight);
+                        audioSrc = cachedSelection.replace(/ip-theme-/, "");
+                        var aud =  document.getElementById("ip-ui-choice");
+                        aud.src = "resources/sounds/selections/" +audioSrc + ".mp3";
+                        document.getElementsByClassName("ip-swipe-left")[0].classList.add(cachedSelection);
+                        
+                        try {
+                            if (t.isMute) aud.muted = true;
+                            aud.play();
+                            aud.onended = function() {
+                                TV.showCountdown();                      
 
-                        // if (!t.isMute) {
-                        //     document.getElementById("ip-ui-choice").src = 
-                        //     document.getElementById("ip-ui-choice").play();
-                        // }                        
+                        }
                     }
-                }
-                    catch (err) {
-                        //click was ui?
-                    }
+                        catch (err) {
+                            //click was ui?
+                        }
 
+                    }
                     // switch (clickeElm) {
                     //     case classList.contains("ip-button-play") :
                     //         alert("got it");
