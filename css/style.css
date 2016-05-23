@@ -73,7 +73,7 @@ span {
 	opacity: 0;
 }
 
-.ip-is-opaque.animated {
+.ip-is-opaque.tanimated {
 	opacity: 1;
 }
 
