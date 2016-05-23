@@ -460,6 +460,25 @@ span {
 	animation-name: swiperightclip;
 }
 
+.ip-game.ip-results-win #ip-user-fighter {
+	    width: 100%;
+	    left: 0;
+	    background-color: red;
+}
+
+.ip-game.ip-results-win #ip-cpu-fighter {
+	    display: none;
+}
+
+.ip-game.ip-results-lose #ip-user-fighter {
+		display: none;
+}
+
+.ip-game.ip-results-lose #ip-cpu-fighter {
+	    width: 100%;
+	    left: 0;
+}
+
 
 .ip-header {
 	font-size: 1.5em;

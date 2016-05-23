@@ -299,7 +299,12 @@
 
         TV.showResultScreen  = function () {
             var t = this;
-            document.getElementById("ip-results").classList.add("ip-results-" + t.currentResult);
+            document.getElementsByClassName("ip-game")[0].classList.add("ip-results-" + t.currentResult);
+            if ( t.currentResult == "win") {
+                document.getElementsByClassName("ip-game")[0].classList.add("ip-theme-" + t.userSelection);
+            } else if ( t.currentResult == "lose") {
+                document.getElementsByClassName("ip-game")[0].classList.add("ip-theme-" + t.cpuSelection);
+            }
             return t;
         };
 
