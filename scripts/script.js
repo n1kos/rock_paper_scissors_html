@@ -246,6 +246,17 @@
         };
 
 
+        TV.showGame = function () {
+             var t = this;
+             document.getElementsByClassName("ip-countdown")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-countdown-tofight")[0].classList.remove("ip-is-disappeared");
+             // document.getElementsByClassName("ip-button-cancel")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-swipe-left")[0].classList.add("ip-start-swipe-l");
+             document.getElementsByClassName("ip-swipe-right")[0].classList.add("ip-start-swipe-r");
+            // animateItems("ip-countdown-items", "animamamama", "sync");
+             return t;
+        };
+
         TV.addInteraction = function () {
             var t = this;
 
@@ -267,6 +278,8 @@
 
                 "ip-theme-rock" : function(){
                      TV.showCountdown();
+                     window.setTimeout(TV.showGame, 4000)
+
                     // t.userSelection = "0";
                     // // alert("user selected rock");
                     // if (!t.isMute) {
@@ -277,6 +290,7 @@
 
                 "ip-theme-paper" : function(){
                      TV.showCountdown();
+                     window.setTimeout(TV.showGame, 4000)
                     // // alert("user selected paper");
                     // t.userSelection = "1";
                     // if (!t.isMute) {
@@ -287,6 +301,7 @@
 
                 "ip-theme-scissors" : function(){
                      TV.showCountdown();
+                     window.setTimeout(TV.showGame, 4000)
                     // // alert("user selected scissors");
                     // t.userSelection = "1";
                     // if (!t.isMute) {
