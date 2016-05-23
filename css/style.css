@@ -11,38 +11,39 @@ span {
 }
 
 [data-eventfull="true"] {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 #ip-main-wrapper {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 100;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 100;
 }
 
-#ip-content, #ip-loading {
+#ip-content,
+#ip-loading {
 	width: 100%;
 	height: 100%;
 }
 
 .ip-tv {
-    width: 95%;
-    height: 95%;
-    margin: auto;
-    background: linear-gradient( #2c2121, #595b51 );
-    border-radius: 24% / 26%;
-    color: white;
-    text-align: center;
-    text-indent: .1em;
-    transition: opacity 0.5s ease;
-    /*opacity: 1;*/
+	width: 95%;
+	height: 95%;
+	margin: auto;
+	background: linear-gradient( #2c2121, #595b51);
+	border-radius: 24% / 26%;
+	color: white;
+	text-align: center;
+	text-indent: .1em;
+	transition: opacity 0.5s ease;
+	/*opacity: 1;*/
 }
 
 .ip-tv.ip-is-loaded {
-	background : linear-gradient( #791422, #E00F2D, #330007);
+	background: linear-gradient( #791422, #E00F2D, #330007);
 }
 
 .ip-tv.ip-is-loaded {
@@ -50,15 +51,15 @@ span {
 }
 
 .ip-tv.ip-is-paper {
-	background: linear-gradient( blue, white );
+	background: linear-gradient( blue, white);
 }
 
 .ip-tv.ip-is-rock {
-	background: linear-gradient( green, white );
+	background: linear-gradient( green, white);
 }
 
 .ip-tv.ip-is-scissors {
-	background: linear-gradient( yellow, white );
+	background: linear-gradient( yellow, white);
 }
 
 .ip-is-hidden {
@@ -78,145 +79,144 @@ span {
 }
 
 .ip-tv:before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    bottom: 21%;
-    right: 0%;
-    left: 0%;
-    background: inherit;
-    opacity: 0.3;
-    border-radius: 72% / 9%;
-    z-index: -1;
+	content: '';
+	position: absolute;
+	top: 20%;
+	bottom: 21%;
+	right: 0%;
+	left: 0%;
+	background: inherit;
+	opacity: 0.3;
+	border-radius: 72% / 9%;
+	z-index: -1;
 }
 
-
 .ip-button-play {
-    top: -10%;
-    /*cursor: pointer;*/
+	top: -10%;
+	/*cursor: pointer;*/
 }
 
 .ip-broken-border {
-    border-image: linear-gradient(#fff, #fff) 5% 0% 5% 0%;
-    text-align: center;
-    display: inline-block;
-    z-index: 5;
-    border-width: 4px;
-    border-style: solid;
+	border-image: linear-gradient(#fff, #fff) 5% 0% 5% 0%;
+	text-align: center;
+	display: inline-block;
+	z-index: 5;
+	border-width: 4px;
+	border-style: solid;
 }
 
 .ip-broken-border:before {
-    content: "";
-    position: absolute;
-    left: -4px;
-    height: 100%;
-    border-image: linear-gradient(#fff, #fff) 0% 1% 0% 1%;
-    top: -4px;
-    border-width: 4px;
-    width: 100%;
-    z-index: -1;
-    border-style: solid;
+	content: "";
+	position: absolute;
+	left: -4px;
+	height: 100%;
+	border-image: linear-gradient(#fff, #fff) 0% 1% 0% 1%;
+	top: -4px;
+	border-width: 4px;
+	width: 100%;
+	z-index: -1;
+	border-style: solid;
 }
 
 .ip-broken-border-shadow {
-    display: inline-block;
-    left: -2px;
-    padding: 10px 50px;
+	display: inline-block;
+	left: -2px;
+	padding: 10px 50px;
 }
 
 .ip-broken-border-shadow:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    height: 100%;
-    border-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)) 5% 0% 5% 0%;
-    top: 0px;
-    border-width: 4px;
-    width: 100%;
-    margin: 0;
-    z-index: -3;
-    border-style: solid;
+	content: "";
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	border-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) 5% 0% 5% 0%;
+	top: 0px;
+	border-width: 4px;
+	width: 100%;
+	margin: 0;
+	z-index: -3;
+	border-style: solid;
 }
 
 .ip-broken-border-shadow:after {
-    content: "";
-    position: absolute;
-    left: 1px;
-    height: 100%;
-    border-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)) 0% 1% 0% 1%;
-    top: 0px;
-    border-width: 4px;
-    width: 100%;
-    z-index: -1;
-    border-style: solid;
+	content: "";
+	position: absolute;
+	left: 1px;
+	height: 100%;
+	border-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) 0% 1% 0% 1%;
+	top: 0px;
+	border-width: 4px;
+	width: 100%;
+	z-index: -1;
+	border-style: solid;
 }
 
 .ip-button {
-    /*padding: 20%;*/
-    font-family: 'PFOnlineTwoPro-Single';
+	/*padding: 20%;*/
+	font-family: 'PFOnlineTwoPro-Single';
 }
 
 .ip-button-text {
-    color: #fff;
-    text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
-    font-weight: bold;
-    font-size: 1.5em;
-    display: inline;
-    text-transform: uppercase;
+	color: #fff;
+	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
+	font-weight: bold;
+	font-size: 1.5em;
+	display: inline;
+	text-transform: uppercase;
 }
 
 .ip-button-container {
-    position: relative;
-    top: -15%;
+	position: relative;
+	top: -15%;
 }
 
 .ip-center {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
 }
 
 .ip-circle {
-    background-color: rgba(0,0,0,0.5);
-    height: 400px;
-    width: 400px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-size: cover;
-    margin: auto;
-    position: relative;
-    opacity: 0.7;
-    display: flex;
-    align-items: center;
-    text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 400px;
+	width: 400px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background-size: cover;
+	margin: auto;
+	position: relative;
+	opacity: 0.7;
+	display: flex;
+	align-items: center;
+	text-align: center;
 }
 
 .ip-has-shadow {
-    box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 50px, rgba(0,0,0,0.1) 0px 0px 0px 107px, rgba(0,0,0,0.1) 0px 0px 0px 162px;
-    /* opacity: 0.1; */
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 50px, rgba(0, 0, 0, 0.1) 0px 0px 0px 107px, rgba(0, 0, 0, 0.1) 0px 0px 0px 162px;
+	/* opacity: 0.1; */
 }
 
 .ip-logo {
 	text-align: left;
-    display: inline-block;
-    width: 100%;
-    font-size: 4em;
-    line-height: 20px;
-    margin: auto;
-    text-transform: uppercase;
-    position: relative;
-    left: 20px;
-    top: -20px;
-    transform: skewY(-15deg);
-    text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
+	display: inline-block;
+	width: 100%;
+	font-size: 4em;
+	line-height: 20px;
+	margin: auto;
+	text-transform: uppercase;
+	position: relative;
+	left: 20px;
+	top: -20px;
+	transform: skewY(-15deg);
+	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
 }
 
 .ip-logo > span {
 	display: inline-block;
-    width: 100%;
-    /*transform: skewY(-15deg);*/
+	width: 100%;
+	/*transform: skewY(-15deg);*/
 }
 
 .ip-logo > span:nth-child(odd) {
@@ -233,27 +233,27 @@ span {
 }
 
 .ip-is-opt:before {
-    display: inline;
-    width: 161px;
-    height: 159px;
-    position: absolute;
-    z-index: -1;
-    overflow: visible;
-    content: "";
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+	display: inline;
+	width: 161px;
+	height: 159px;
+	position: absolute;
+	z-index: -1;
+	overflow: visible;
+	content: "";
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
-
-.ip-select-weapon, .ip-countdown  {
-	  display: flex;
-							    align-items: center;
-							    width: 100%;
-							    height: 100%;
-							    position: absolute;
-							    top: 0;
-							    left: 0
+.ip-select-weapon,
+.ip-countdown {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0
 }
 
 .ip-countdown {
@@ -261,195 +261,197 @@ span {
 }
 
 .ip-list-weapons {
-    display: inline-block;
-    width: 100%;
+	display: inline-block;
+	width: 100%;
 	height: 57%;
 }
- .ip-list-countdown {
-    height: 100%;
-    display: block;
-    width: 100%;
+
+.ip-list-countdown {
+	height: 100%;
+	display: block;
+	width: 100%;
 }
 
 .ip-is-rock:before {
 	background-image: url("../resources/images/opt1.png");
-    top: -133px;
-    right: 150px;
+	top: -133px;
+	right: 150px;
 }
 
 .ip-is-paper:before {
 	background-image: url("../resources/images/opt3.png");
-    top: -196px;
-    right: 102px;
+	top: -196px;
+	right: 102px;
 }
 
 .ip-is-scissors:before {
 	background-image: url("../resources/images/opt2.png");
-	    top: -219px;
-    right: 57px;
+	top: -219px;
+	right: 57px;
 }
 
 .ip-is-opt.ip-reset-selections:before {
-    width: 160px;
-    height: 160px;
+	width: 160px;
+	height: 160px;
 }
 
 .ip-reset-selections {
-    top: auto;
-    right: auto;
-    width: 160px;
-    height: 160px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0 3em 0;
+	top: auto;
+	right: auto;
+	width: 160px;
+    height: 168px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0 3em 0;
 }
 
 .animamamama {
-    animation-name : select;
-    animation-fill-mode  : forwards;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
+	animation-name: select;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
 }
 
 .ip-reset-selections:before {
-    top: auto;
-    right: auto;	
+	top: auto;
+	right: auto;
 }
 
-
-.ip-theme-rock, .ip-theme-3 {
+.ip-theme-rock,
+.ip-theme-3 {
 	background-color: #00dc52;
 }
 
-.ip-theme-paper, .ip-theme-1 {
+.ip-theme-paper,
+.ip-theme-1 {
 	background-color: #000be7;
 }
 
-.ip-theme-scissors,.ip-theme-2 {
+.ip-theme-scissors,
+.ip-theme-2 {
 	background-color: #d8ce00;
 }
 
 .ip-is-choice-rock:after {
-    background: transparent url("../resources/images/opt1.png") center 0 no-repeat;
-    right: -41px;
-    position: relative;
-    z-index: -1;
-    content: "";
-    float: right;
-    top: -52px;
-    width: 240px;
-    height: 200px;
-    background-size: contain;
+	background: transparent url("../resources/images/opt1.png") center 0 no-repeat;
+	right: -41px;
+	position: relative;
+	z-index: -1;
+	content: "";
+	float: right;
+	top: -52px;
+	width: 240px;
+	height: 200px;
+	background-size: contain;
 }
 
 .ip-is-choice-paper:after {
-    background: transparent url("../resources/images/opt3.png") center 0 no-repeat;
-    right: -14px;
-    position: relative;
-    z-index: -1;
-    content: "";
-    float: right;
-    top: -100px;
-    width: 189px;
-    height: 251px;
-    background-size: contain;
-    transform: rotateZ(-7deg);
+	background: transparent url("../resources/images/opt3.png") center 0 no-repeat;
+	right: -14px;
+	position: relative;
+	z-index: -1;
+	content: "";
+	float: right;
+	top: -100px;
+	width: 189px;
+	height: 251px;
+	background-size: contain;
+	transform: rotateZ(-7deg);
 }
 
 .ip-is-choice-scissors:after {
-    background: transparent url("../resources/images/opt2.png") center 0 no-repeat;
-    right: -62px;
-    position: relative;
-    z-index: -1;
-    content: "";
-    float: right;
-    top: -121px;
-    width: 201px;
-    height: 271px;
-    background-size: contain;
-    transform: rotateZ(-12deg);
+	background: transparent url("../resources/images/opt2.png") center 0 no-repeat;
+	right: -62px;
+	position: relative;
+	z-index: -1;
+	content: "";
+	float: right;
+	top: -121px;
+	width: 201px;
+	height: 271px;
+	background-size: contain;
+	transform: rotateZ(-12deg);
 }
 
 .ip-countdown-list {
-    list-style: none;
-    width: 100%;
-    display: block;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 0;
-    left: 0;
-    font-size: 2em;
-    text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
-    text-transform: uppercase;
-    width: 100%;
-    height: 100%;    
+	list-style: none;
+	width: 100%;
+	display: block;
+	align-items: center;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+	font-size: 2em;
+	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
+	text-transform: uppercase;
+	width: 100%;
+	height: 100%;
 }
 
- .ip-swipe-left {
- 	-webkit-clip-path: polygon(46% 0%, 58% 0%, 39% 100%, 0% 269%);
- 	/*background-color: #29B534;*/
- }
+.ip-swipe-left {
+	-webkit-clip-path: polygon(46% 0%, 58% 0%, 39% 100%, 0% 269%);
+	/*background-color: #29B534;*/
+}
 
 .ip-swipe-right {
- 	-webkit-clip-path: polygon(85% -42%, 58% -1%, 39% 96%, -14% 298%);
- 	position: absolute;
- 	/*background-color: #0B0064;*/
- }
-
+	-webkit-clip-path: polygon(85% -42%, 58% -1%, 39% 96%, -14% 298%);
+	position: absolute;
+	/*background-color: #0B0064;*/
+}
 
 .ip-countdown-tofight {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .ip-weapon-list {
-    height: 100%;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    margin-top: 108px;
+	height: 100%;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	margin-top: 108px;
 }
 
 .ip-weapon-list span {
 	position: absolute;
-    top: 40%;
-    left: 0;
-    width: 100%;
-    font-size: 2em;
-    text-transform: uppercase;
+	top: 40%;
+	left: 0;
+	width: 100%;
+	font-size: 2em;
+	text-transform: uppercase;
 	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
 }
 
 .ip-countdown-tofight ul {
-    animation-direction: normal;
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
+	animation-direction: normal;
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
 }
 
 .ip-countdown-items {
-    display: block;
-    font-size: 203pt;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
+	display: block;
+	font-size: 203pt;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
 }
 
 .ip-countdown-items-tofight {
-    display: block;
-    font-size: 203pt;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	display: block;
+	font-size: 203pt;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .ip-start-swipe-l {
@@ -461,24 +463,23 @@ span {
 }
 
 .ip-game.ip-results-win #ip-user-fighter {
-	    width: 100%;
-	    left: 0;
-	    background-color: red;
+	width: 100%;
+	left: 0;
+	background-color: red;
 }
 
 .ip-game.ip-results-win #ip-cpu-fighter {
-	    display: none;
+	display: none;
 }
 
 .ip-game.ip-results-lose #ip-user-fighter {
-		display: none;
+	display: none;
 }
 
 .ip-game.ip-results-lose #ip-cpu-fighter {
-	    width: 100%;
-	    left: 0;
+	width: 100%;
+	left: 0;
 }
-
 
 .ip-header {
 	font-size: 1.5em;
@@ -486,96 +487,96 @@ span {
 	text-transform: uppercase;
 }
 
-
 .ip-list-countdown > .ip-header {
 	font-size: 4em;
-    position: absolute;
-    display: block;
-    width: 100%;
-    top: 20%;
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 20%;
 }
 
 .ip-fighter-3 {
 	background: transparent url("../resources/images/opt1.png") center no-repeat;
 }
 
- .ip-fighter-2 {
+.ip-fighter-2 {
 	background: transparent url("../resources/images/opt2.png") center no-repeat;
- }
+}
 
 .ip-fighter-1 {
- 	background: transparent url("../resources/images/opt3.png") center no-repeat;
- }
+	background: transparent url("../resources/images/opt3.png") center no-repeat;
+}
 
 .trapezoid {
-  width: 200px;
-  height: 200px;
-  background: red;
-  transform: perspective(10px) rotateX(1deg);
-  margin: 50px;
+	width: 200px;
+	height: 200px;
+	background: red;
+	transform: perspective(10px) rotateX(1deg);
+	margin: 50px;
 }
 
-.my-trapezoid-left  {
-    width: 6%;
-    height: 140%;
-    background:#431E4C;
-    transform: translate3d(-100%,-140px,0) rotateZ(-169deg);
-    position: absolute;
-    top: 0;
-    transition: all 2s ease;
-    left: 50%;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;    
+.my-trapezoid-left {
+	width: 6%;
+	height: 140%;
+	background: #431E4C;
+	transform: translate3d(-100%, -140px, 0) rotateZ(-169deg);
+	position: absolute;
+	top: 0;
+	transition: all 2s ease;
+	left: 50%;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
 }
 
-.my-trapezoid-right  {
-    width: 6%;
-    height: 200%;
-    background: wheat;
-    transform: translate3d(-53px,-123px,0) rotateZ(-349deg);
-    position: absolute;
-    top: 0;
-    transition: all 2s ease;
-    left: 50%;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
+.my-trapezoid-right {
+	width: 6%;
+	height: 200%;
+	background: wheat;
+	transform: translate3d(-53px, -123px, 0) rotateZ(-349deg);
+	position: absolute;
+	top: 0;
+	transition: all 2s ease;
+	left: 50%;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
 }
 
 .my-trapezoid-right:hover {
-/*    width: 20%;
+	/*    width: 20%;
     transform: translate3d(0px,-18px,0) rotateZ(-349deg);*/
 }
 
-.my-trapezoid-left:hover { /* wowowowowowwo , this increases width to the left as the wifth increases!!!!*/
- /*   width: 20%;
+.my-trapezoid-left:hover {
+	/* wowowowowowwo , this increases width to the left as the wifth increases!!!!*/
+	/*   width: 20%;
     transform: translate3d(-100%,-18px,0) rotateZ(-169deg);*/
 }
 
 .trapezoid_on {
-    width: 91%;
-    height: 91%;
-    margin: auto;
-    border-radius: 24% / 26%;
-    border-style: solid;
-    border-width: 140px;
-    color: black;
-    position: fixed;
-    top: -101px;
-    left: -84px;
+	width: 91%;
+	height: 91%;
+	margin: auto;
+	border-radius: 24% / 26%;
+	border-style: solid;
+	border-width: 140px;
+	color: black;
+	position: fixed;
+	top: -101px;
+	left: -84px;
 }
 
 .ip-game {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .ip-game .ip-split-screen:first-child {
@@ -587,25 +588,54 @@ span {
 }
 
 .ip-split-screen {
-    height: 100%;
-    width: 50%;
-    display: inline-block;    
-    position: absolute;    
+	height: 100%;
+	width: 50%;
+	display: inline-block;
+	position: absolute;
 }
 
+.ip-menu-container {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.ip-menu-container > span {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	position: relative;
+	top: 100px;
+	text-align: center;
+}
+
+.ip-menu-container > span > span:first-child {
+	width: 40%;
+	text-align: left;
+	display: inline-block;
+	margin-left: -4%;
+}
+
+.ip-menu-container > span > span:last-child {
+	width: 38%;
+	text-align: right;
+	display: inline-block;
+}
+
+
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-device-width : 320px)  {
+
+@media only screen and (max-device-width: 320px) {
 	/* Styles */
 	.hide-sm {
 		display: none;
 	}
 }
 
-@media only screen and (max-device-width : 850px)  {
+@media only screen and (max-device-width: 850px) {
 	/* Styles */
 	.ip-list-weapons {
-    height: 90%;
+		height: 90%;
 	}
 }
-
-

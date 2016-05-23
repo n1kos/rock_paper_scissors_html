@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-	<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-	<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-	<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-	<!--[if gt IE 8]><!-->
-	<html class="no-js">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
 	<!--<![endif]-->
 
 	<head>
@@ -27,24 +27,22 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<!-- Add your site or application content here -->
-
-		<audio id="ip-bg-audio" src="resources/sounds/music.mp3"  loop="true" preload="true" autobuffer></audio>
+		<audio id="ip-bg-audio" src="resources/sounds/music.mp3" loop="true" preload="true" autobuffer></audio>
 		<audio id="ip-ui-audio" src="resources/sounds/ui_buttons.mp3" preload="true" autobuffer></audio>
 		<audio id="ip-ui-countdown" src="resources/sounds/countdown.mp3" preload="true" autobuffer></audio>
 		<audio id="ip-ui-choice" src="resources/sounds/selections/paper.mp3" preload="true" autobuffer>
-			<source src="resources/sounds/selections/rock.mp3" type="audio/mp3"  />
-			<source src="resources/sounds/selections/scissors.mp3" type="audio/mp3"  />
+			<source src="resources/sounds/selections/rock.mp3" type="audio/mp3" />
+			<source src="resources/sounds/selections/scissors.mp3" type="audio/mp3" />
 		</audio>
 		<audio id="ip-ui-winners" src="resources/sounds/winners/paper.mp3" preload="true" autobuffer>
-			<source src="resources/sounds/winners/rock.mp3" type="audio/mp3"  />
-			<source src="resources/sounds/winners/scissors.mp3" type="audio/mp3"  />
+			<source src="resources/sounds/winners/rock.mp3" type="audio/mp3" />
+			<source src="resources/sounds/winners/scissors.mp3" type="audio/mp3" />
 		</audio>
 		<!-- <audio id="audio2" src="YOUR_AUDIO_FILE 2.wav" controls preload="auto" autobuffer>  </audio> -->
-
 		<div id="ip-main-wrapper" class="ip-tv">
 			<div id="ip-loading" class="ip-loading">
 				<div class="ip-center">
-					<span class="ip-loader glitch"  data-text="loading"></span>
+					<span class="ip-loader glitch" data-text="loading"></span>
 				</div>
 			</div>
 			<div id="ip-content" class="ip-content ip-is-hidden">
@@ -61,32 +59,26 @@
 					</div>
 				</div>
 				<div class="ip-select-weapon ip-is-disappeared">
-					<span class="ip-list-weapons" >
+					<span class="ip-list-weapons">
 						<span class="ip-header">choose your weapon</span>
-						<ul class="ip-weapon-list">
-							<li data-eventfull="true" data-weight="3" class=" animated bounceIn ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-rock ip-theme-rock"><span>rock</span></li>
-							<li data-eventfull="true" data-weight="1" class="  animated bounceIn ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-paper ip-theme-paper"><span>paper</span></li>
-							<li data-eventfull="true" data-weight="2" class=" animated bounceIn  ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-scissors ip-theme-scissors"><span>scissors</span></li>
-						</ul>
+					<ul class="ip-weapon-list">
+						<li data-eventfull="true" data-weight="3" class=" animated bounceIn ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-rock ip-theme-rock"><span>rock</span></li>
+						<li data-eventfull="true" data-weight="1" class="  animated bounceIn ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-paper ip-theme-paper"><span>paper</span></li>
+						<li data-eventfull="true" data-weight="2" class=" animated bounceIn  ip-broken-border ip-reset-selections ip-is-opt ip-is-choice-scissors ip-theme-scissors"><span>scissors</span></li>
+					</ul>
 					</span>
 				</div>
 				<div class="ip-countdown ip-is-disappeared">
-					<span class="ip-list-countdown" >
+					<span class="ip-list-countdown">
 						<span class="ip-header">ready?</span>
-						<ul class="ip-countdown-list">
-							<li class="ip-countdown-items">3</li>
-							<li class="ip-countdown-items">2</li>
-							<li class="ip-countdown-items">1</li>
-							<li class="ip-countdown-items">go!</li>
-						</ul>
+					<ul class="ip-countdown-list">
+						<li class="ip-countdown-items">3</li>
+						<li class="ip-countdown-items">2</li>
+						<li class="ip-countdown-items">1</li>
+						<li class="ip-countdown-items">go!</li>
+					</ul>
 					</span>
 				</div>
-
-
-
-
-
-
 				<div class="ip-countdown-tofight ip-is-disappeared">
 					<span class="ip-list-countdown">				
 							<ul class="ip-countdown-list ip-swipe-left">		
@@ -97,108 +89,39 @@
 							</ul>
 						</span>
 				</div>
-
-			<div class="ip-game  ip-is-disappeared">
-			<div id="ip-user-fighter" class="ip-split-screen"></div>
-			<div id="ip-cpu-fighter" class="ip-split-screen"></div>
-			<div id="ip-results" class="ip-screen"></div>
-
-				  <div class="trapezoid_on"></div>
-			</div>
-
-
-
-
-
-
-
-
-
-<!-- <div class='wrapper'>
-  <div class='time-part-wrapper'>
-    <div class='time-part seconds tens'>
-      <div class='digit-wrapper'>
-        <span class='digit'>0</span>
-        <span class='digit'>9</span>
-        <span class='digit'>8</span>
-        <span class='digit'>7</span>
-        <span class='digit'>6</span>
-        <span class='digit'>5</span>
-        <span class='digit'>4</span>
-        <span class='digit'>3</span>
-        <span class='digit'>2</span>
-        <span class='digit'>1</span>
-        <span class='digit'>0</span>
-      </div>
-    </div>
-  </div>
-</div>
- -->
+				<div class="ip-game  ip-is-disappeared">
+					<div id="ip-user-fighter" class="ip-split-screen"></div>
+					<div id="ip-cpu-fighter" class="ip-split-screen"></div>
+					<div id="ip-results" class="ip-screen"></div>
+					<div class="trapezoid_on"></div>
+				</div>
 				<div class="ip-button-container">
 					<span data-eventfull="true" class="ip-broken-border ip-button-play">
 						<span class="ip-broken-border-shadow">
 							<span class="ip-button-anim-wrap">
 								<span class="ip-button-text ip-button">begin</span>
-								<span class="fa fa-arrow-right ip-button-text hide-sm"></span>
-							</span>
-						</span>
+					<span class="fa fa-arrow-right ip-button-text hide-sm"></span>
+					</span>
+					</span>
 					</span>
 					<span data-eventfull="true" class="ip-broken-border ip-button-cancel ip-is-disappeared">
 						<span class="ip-broken-border-shadow">
 							<span class="ip-button-anim-wrap">
 								<span class="ip-button-text ip-button">cancel</span>
-							</span>
-						</span>
-					</span>					
-				</div><!--bottom button-->
-
-<!-- 				<div class="ip-menu-container" style="
-    				position: fixed;
-    				top: 0;
-    					width: 100%;
-    				height: 100%;">
-    				<span>
-    				<span data-eventfull="true" class="ip-toggle-sound fa fa-5x fa-bars "></span>
-    				<span data-eventfull="true" class="ip-toggle-sound fa fa-5x fa-volume-up"></span>
-    				</span>
-    				</div> -->
-
-
-<div class="ip-menu-container" style="
-    				position: fixed;
-    				top: 0;
-    				width: 100%;
-    				height: 100%;
-    				">
-    				<span style="
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    position: relative;
-    top: 100px;
-    text-align: center;
-">
-    				<span data-eventfull="true" class="ip-toggle-menu fa fa-5x fa-bars " style="
-    width: 40%;
-    text-align: left;
-    display: inline-block;
-    margin-left: -4%;
-"></span>
-    				<span data-eventfull="true" class="ip-toggle-sound fa fa-5x fa-volume-up" style="
-    width: 38%;
-    text-align: right;
-    display: inline-block;
-    /* margin-right: 108px; */
-"></span>
-    				</span>
-    				</div>
-
-
-			</div><!--content-->
+					</span>
+					</span>
+					</span>
+				</div>
+				<div class="ip-menu-container">
+					<span>
+    					<span data-eventfull="true" class="ip-toggle-menu fa fa-4x fa-bars"></span>
+						<span data-eventfull="true" class="ip-toggle-sound fa fa-4x fa-volume-up"></span>
+					</span>
+				</div>
+			</div>
+			<!--content-->
 		</div>
 		<script type="text/javascript" src="scripts/vendors/jquery.min.js"></script>
-		<script type="text/javascript" src="scripts/vendors/mouse.parallax.js"></script>
-		<script type="text/javascript" src="scripts/jqdepscript.js"></script>
 	</body>
 
-	</html>
+</html>
