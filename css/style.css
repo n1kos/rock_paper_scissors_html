@@ -299,7 +299,7 @@ span {
 	top: auto;
 	right: auto;
 	width: 160px;
-    height: 168px;
+	height: 168px;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -462,10 +462,37 @@ span {
 	animation-name: swiperightclip;
 }
 
+.ip-screen {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.ip-screen > span {
+	display: inline-block;
+	width: 100%;
+	height: 30%;
+}
+
+.ip-game .ip-header2 {
+	display: none;
+}
+
+.ip-game.ip-results-lose .ip-header-loser {
+	display: block;
+}
+
+.ip-game.ip-results-win .ip-header-winner {
+	display: block;
+}
+
 .ip-game.ip-results-win #ip-user-fighter {
 	width: 100%;
 	left: 0;
-	background-color: red;
 }
 
 .ip-game.ip-results-win #ip-cpu-fighter {
@@ -485,6 +512,11 @@ span {
 	font-size: 1.5em;
 	text-shadow: rgba(255, 255, 255, 0.1) 8px 6px 0px;
 	text-transform: uppercase;
+}
+
+.ip-header2 {
+	font-size: 10em;
+	display: block;
 }
 
 .ip-list-countdown > .ip-header {
@@ -637,5 +669,41 @@ span {
 	/* Styles */
 	.ip-list-weapons {
 		height: 90%;
+	}
+}
+
+
+/* Portrait */
+
+@media screen and (orientation:portrait) {
+	.ip-weapon-list {
+		margin-top: 240px;
+	}
+}
+
+@media screen and (max-device-width: 850px) {
+	.ip-reset-selections {
+		width: 60px;
+		height: 68px;
+		margin: 0 1em 0;
+	}
+	.ip-is-opt.ip-reset-selections:before {
+		width: 60px;
+		height: 60px;
+	}
+	.ip-weapon-list span {
+		font-size: 1em;
+	}
+	.ip-is-choice-rock:after {
+		width: 140px;
+		height: 100px;
+	}
+	.ip-is-choice-paper:after {
+		width: 89px;
+		height: 151px;
+	}
+	.ip-is-choice-scissors:after {
+		width: 101px;
+		height: 171px;
 	}
 }

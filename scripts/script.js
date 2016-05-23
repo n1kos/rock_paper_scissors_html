@@ -280,24 +280,47 @@
         TV.determineWinner = function() {
             var t = this;
             var result = t.userSelection - t.cpuSelection;
-            if (result > 0 && result < 2) {
+             t.currentResult = "tie";
+
+            if (((result > 0) && (result < 2)) || (((Math.abs(result) == 2) && (result < 0)))) {
                 t.currentResult = "win";
-            } else if ((Math.abs(result) == 2) || (result < 0)) {
-                t.currentResult = "lose";
+            // } else if  {
+            //     t.currentResult = "lose";
             } else {
-                t.currentResult = "tie";
+                t.currentResult = "lose";
             }
             return t;
         };
 
         TV.showResultScreen = function() {
             var t = this;
+
+            function getTextFromCode (code) {
+                var returns = "";
+                 code == 1 ? returns="paper" : code == 2 ? returns="scissors" : returns="rock";
+                 return returns
+            }
+
             document.getElementsByClassName("ip-game")[0].classList.add("ip-results-" + t.currentResult);
+
             if (t.currentResult == "win") {
                 document.getElementsByClassName("ip-game")[0].classList.add("ip-theme-" + t.userSelection);
+                document.getElementsByClassName("ip-results-text")[0].children[0].innerHTML = getTextFromCode(t.userSelection);
+                document.getElementsByClassName("ip-results-text")[0].children[2].innerHTML = getTextFromCode(t.cpuSelection);
+                document.getElementById("ip-ui-winners").src = "resources/sounds/winners/" + getTextFromCode(t.userSelection) + ".mp3";
             } else if (t.currentResult == "lose") {
                 document.getElementsByClassName("ip-game")[0].classList.add("ip-theme-" + t.cpuSelection);
+                document.getElementsByClassName("ip-results-text")[0].children[2].innerHTML = getTextFromCode(t.userSelection);
+                document.getElementsByClassName("ip-results-text")[0].children[0].innerHTML = getTextFromCode(t.cpuSelection);
+                document.getElementById("ip-ui-winners").src = "resources/sounds/winners/" + getTextFromCode(t.cpuSelection) + ".mp3";
+
             }
+            document.getElementById("ip-ui-winners").play()
+            document.getElementsByClassName("ip-screen")[0].classList.remove("ip-is-disappeared");
+            
+            
+            
+            
             return t;
         };
 
