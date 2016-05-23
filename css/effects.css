@@ -213,6 +213,16 @@
   }
 }
 
+@keyframes swipeleftclip {
+  50% {
+    width: 20%;
+  }
+  100% {
+    width: 100%;
+    /*transform : translate3d(-99%,-91px,0) rotateZ(-169deg);*/
+  }
+}
+
 @keyframes swiperight {
    50% {
     width: 20%;
@@ -223,6 +233,15 @@
   }
 }
 
+@keyframes swiperightclip {
+   50% {
+    width: 20%;
+  }
+  100% {
+    width: 100%;
+    /*transform : translate3d(-4px,55px,0) rotateZ(-349deg);*/
+  }
+}
 
 
 
