@@ -16,6 +16,9 @@
         document.getElementById(id).style.visibility = value ? 'visible' : 'hidden';
     }
 
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     /**
      *
      * cross browser event listener handling
@@ -256,6 +259,28 @@
             // animateItems("ip-countdown-items", "animamamama", "sync");
              return t;
         };
+
+        TV.showUserSelection = function () {
+             var t = this;
+             return t;
+        };
+
+        TV.showCPUSelection = function () {
+             var t = this;            
+             t.cpuSelection = getRandomInt(0,2);
+             document.getElementById("ip-cpu-fighter").classList.add("ip-cpu-" +  t.cpuSelection);
+             return t;
+        };
+
+
+        TV.determineWinner = function () {
+             var t = this;            
+             t.cpuSelection = getRandomInt(0,2);
+
+             return t;
+        };
+
+
 
         TV.addInteraction = function () {
             var t = this;
