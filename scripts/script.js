@@ -266,6 +266,7 @@
              document.getElementsByClassName("ip-swipe-right")[0].classList.add("ip-start-swipe-r");
             // animateItems("ip-countdown-items", "animamamama", "sync");
             TV.showUserSelection().showCPUSelection().determineWinner().showResultScreen();
+            window.setTimeout(TV.resetGUI, 4000);
              return t;
         };
 
@@ -308,6 +309,22 @@
             return t;
         };
 
+        TV.resetGUI = function () {
+             var t = this;
+             document.getElementsByClassName("ip-game")[0].className = "ip-game ip-is-disappeared";
+             document.getElementsByClassName("ip-countdown-tofight")[0].className = "ip-countdown-tofight ip-is-disappeared";
+             document.getElementsByClassName("ip-countdown-list ip-swipe-left")[0].className = "ip-countdown-list ip-swipe-left";
+             document.getElementsByClassName("ip-countdown-list ip-swipe-right")[0].className = "ip-countdown-list ip-swipe-right";
+             // $(".ip-split-screen").class("ip-split-screen");
+             $(".animated").each(function() {
+                $(this).removeClass("animated");
+             });
+             document.getElementsByClassName("ip-select-weapon")[0].classList.remove("ip-is-disappeared");
+             // document.getElementsByClassName("ip-button-restart")[0].classList.add("ip-is-disappeared");
+             document.getElementsByClassName("ip-button-play")[0].classList.remove("ip-is-disappeared");
+             // TV.showHomePage ();
+             return t;
+        }
 
         TV.addInteraction = function () {
             var t = this;
