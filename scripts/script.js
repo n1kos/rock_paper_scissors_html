@@ -188,7 +188,7 @@
         TV.showHomePage = function () {
             var t = this;
             window.setTimeout(function(){
-                //document.getElementById('ip-bg-audio').play();
+                document.getElementById('ip-bg-audio').play();
                 document.getElementsByClassName("ip-tv")[0].classList.add("ip-is-loaded");
                 showOpacity('ip-main-wrapper', true);
                 document.getElementById("ip-content").classList.remove("ip-is-hidden");
@@ -350,7 +350,23 @@
                 },
 
                 "ip-theme-scissors" : function(){                
+                },
+
+                "fa-volume-off" : function () {
+                     TV.isMute = false;
+                     document.getElementById("ip-bg-audio").play();
+                     document.getElementsByClassName("ip-toggle-sound")[0].classList.remove("fa-volume-off");
+                     document.getElementsByClassName("ip-toggle-sound")[0].classList.add("fa-volume-up");
+
+                },
+
+                "fa-volume-up" : function () {
+                  TV.isMute = true; 
+                  document.getElementById("ip-bg-audio").pause();
+                  document.getElementsByClassName("ip-toggle-sound")[0].classList.remove("fa-volume-up");
+                     document.getElementsByClassName("ip-toggle-sound")[0].classList.add("fa-volume-off");
                 }
+
             };
 
             var handlerAll = function (evt) {
@@ -358,10 +374,13 @@
                 var audioSrc = "";
                 if (clickeElm != null) {
                     var cachedSelection = clickeElm.classList.item(clickeElm.classList.length -1).toString();
+                    try {
+                        listfunctions[cachedSelection]();
+                    } catch (err) {
 
-                    listfunctions[cachedSelection]();
+                    }
 
-                    if (cachedSelection != "ip-button-play" && cachedSelection != "ip-button-cancel") {
+                    if (cachedSelection != "ip-button-play" && cachedSelection != "ip-button-cancel" && cachedSelection != "fa-volume-up" && cachedSelection != "fa-volume-off") {
                         
                         t.userSelection = parseInt(clickeElm.dataset.weight);
                         
@@ -375,20 +394,34 @@
                             if (t.isMute) aud.muted = true;
                             aud.play();
                             
-                            // $(".ip-theme-rock").animate({left: $(".ip-weapon-list").width()/6}, {
-                            //       complete: function() {
-                            //         window.setTimeout(function () {
-                            //          $(this).removeAttr("style");
-                            //              /* body... */ 
-                            //         }, 600)
-                            //     }
-                            // });
-                            // $(".ip-theme-scissors").animate({right: $(".ip-weapon-list").width()/6});
+                            clickeElm.classList.remove("animated");
+                            clickeElm.style.transform = "scale(1.5)";
+                            clickeElm.style.zIndex = "30";
+
+                            $(".ip-is-opt.ip-theme-rock").animate({left: $(".ip-weapon-list").width()/4.5}, {
+                                  complete: function() {
+                                    window.setTimeout(function () {
+                                     $(this).removeAttr("style");
+                                     $(this).addClass("animated");
+                                         /* body... */ 
+                                    }, 600)
+                                }
+                            });
+                            
+                            $(".ip-is-opt.ip-theme-scissors").animate({right: $(".ip-weapon-list").width()/4.5}, {
+                                  complete: function() {
+                                    window.setTimeout(function () {
+                                     $(this).removeAttr("style");
+                                     $(this).addClass("animated");
+                                         /* body... */ 
+                                    }, 600)
+                                }
+                            });
 
                             aud.onended = function() {
                                 TV.showCountdown();                      
 
-                        }
+                            }
                     }
                         catch (err) {
                             //click was ui?
