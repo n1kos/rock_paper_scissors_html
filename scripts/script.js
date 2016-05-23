@@ -174,6 +174,7 @@
             userLastSelection : "",
             cpuSelection : "",
             cpuLastSelection : "",
+            currentResult : "",
             isMute : false
         };
 
@@ -240,6 +241,13 @@
 
         TV.showCountdown = function () {
              var t = this;
+            var aud =  document.getElementById("ip-ui-countdown");
+            if (t.isMute) aud.muted = true;
+            aud.onended = function() {
+                 TV.showGame();
+                    // alert("The audio has ended");
+            };
+             aud.play();
              document.getElementsByClassName("ip-select-weapon")[0].classList.add("ip-is-disappeared");
              document.getElementsByClassName("ip-circle")[0].classList.remove("ip-has-shadow");
              document.getElementsByClassName("ip-button-cancel")[0].classList.add("ip-is-disappeared");
@@ -262,48 +270,73 @@
 
         TV.showUserSelection = function () {
              var t = this;
+             document.getElementById("ip-user-fighter").classList.add("ip-fighter-" +  t.userSelection);
              return t;
         };
 
         TV.showCPUSelection = function () {
              var t = this;            
              t.cpuSelection = getRandomInt(0,2);
-             document.getElementById("ip-cpu-fighter").classList.add("ip-cpu-" +  t.cpuSelection);
+             document.getElementById("ip-cpu-fighter").classList.add("ip-fighter-" +  t.cpuSelection);
              return t;
         };
 
 
         TV.determineWinner = function () {
-             var t = this;            
-             t.cpuSelection = getRandomInt(0,2);
-
+             var t = this;     
+             var result = t.userSelection - t.cpuSelection;
+             if (result > 0 && result < 2) {
+                t.currentResult = "win";
+             } else if ((Math.abs(result) == 2) || (result < 0)) {
+                t.currentResult = "lose";
+             } else {
+                t.currentResult = "tie";
+             }
              return t;
         };
 
+        TV.showResultScreen  = function () {
+            var t = this;
+            document.getElementById("ip-results").classList.add("ip-results-" + t.currentResult);
+            return t;
+        };
 
 
         TV.addInteraction = function () {
             var t = this;
-
             var listfunctions = {
                 "ip-button-play" : function() {
                     // alert("nifniuweifn");
-                    if (!t.isMute) {
-                         document.getElementById("ip-ui-audio").play();
-                    }  
-                    t.showSelection();
+                    var aud =  document.getElementById("ip-ui-audio");
+                    if (t.isMute) aud.muted = true;
+                    aud.play();
+                    aud.onended = function() {
+                        t.showSelection();
+                    }
                 },
 
                 "ip-button-cancel" : function () {
-                    if (!t.isMute) {
-                         document.getElementById("ip-ui-audio").play();
-                    }                      
-                     t.showMenu();
+                    var aud =  document.getElementById("ip-ui-audio");
+                    if (t.isMute) aud.muted = true;
+                    aud.play();
+                    aud.onended = function() {
+                        t.showMenu();
+                    }
+
+                     
                 },
 
                 "ip-theme-rock" : function(){
-                     TV.showCountdown();
-                     window.setTimeout(TV.showGame, 4000)
+                    // var aud =  document.getElementById("ip-ui-choice");
+                    // aud.src = "resources/sounds/selections/rock.mp3";
+                    // if (t.isMute) aud.muted = true;
+                    // aud.play();
+                    // aud.onended = function() {
+                    //     TV.showCountdown();
+                    // }
+
+                     
+                     // window.setTimeout(TV.showGame, 4000)
 
                     // t.userSelection = "0";
                     // // alert("user selected rock");
@@ -314,8 +347,14 @@
                 },
 
                 "ip-theme-paper" : function(){
-                     TV.showCountdown();
-                     window.setTimeout(TV.showGame, 4000)
+                    // var aud =  document.getElementById("ip-ui-choice");
+                    // aud.src = "resources/sounds/selections/paper.mp3";
+                    // if (t.isMute) aud.muted = true;
+                    // aud.play();
+                    // aud.onended = function() {
+                    //     TV.showCountdown();
+                    // }
+                     // window.setTimeout(TV.showGame, 4000)
                     // // alert("user selected paper");
                     // t.userSelection = "1";
                     // if (!t.isMute) {
@@ -325,8 +364,14 @@
                 },
 
                 "ip-theme-scissors" : function(){
-                     TV.showCountdown();
-                     window.setTimeout(TV.showGame, 4000)
+                    //  var aud =  document.getElementById("ip-ui-choice");
+                    // aud.src = "resources/sounds/selections/scissors.mp3";
+                    // if (t.isMute) aud.muted = true;
+                    // aud.play();
+                    // aud.onended = function() {
+                    //     TV.showCountdown();
+                    // }
+                     // window.setTimeout(TV.showGame, 4000)
                     // // alert("user selected scissors");
                     // t.userSelection = "1";
                     // if (!t.isMute) {
@@ -338,17 +383,26 @@
 
             var handlerAll = function (evt) {
                 var clickeElm = findUpTag(evt.target, evt);
-                
+                var audioSrc = "";
                 if (clickeElm != null) {
                     var cachedSelection = clickeElm.classList.item(clickeElm.classList.length -1).toString();
                     listfunctions[cachedSelection]();
-                    t.userSelection = cachedSelection.replace(/ip-theme-/, "");
+                    t.userSelection = parseInt(clickeElm.dataset.weight);
+                    audioSrc = cachedSelection.replace(/ip-theme-/, "");
+                    var aud =  document.getElementById("ip-ui-choice");
+                    aud.src = "resources/sounds/selections/" +audioSrc + ".mp3";
                     try {
-                        if (!t.isMute) {
-                            document.getElementById("ip-ui-choice").src = "resources/sounds/selections/" + t.userSelection + ".mp3";
-                            document.getElementById("ip-ui-choice").play();
-                        }                        
+                        if (t.isMute) aud.muted = true;
+                        aud.play();
+                        aud.onended = function() {
+                            TV.showCountdown();                      
+
+                        // if (!t.isMute) {
+                        //     document.getElementById("ip-ui-choice").src = 
+                        //     document.getElementById("ip-ui-choice").play();
+                        // }                        
                     }
+                }
                     catch (err) {
                         //click was ui?
                     }
