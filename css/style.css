@@ -394,11 +394,13 @@ span {
 
 .ip-swipe-left {
 	-webkit-clip-path: polygon(46% 0%, 58% 0%, 39% 100%, 0% 269%);
+	clip-path: polygon(46% 0%, 58% 0%, 39% 100%, 0% 269%);
 	/*background-color: #29B534;*/
 }
 
 .ip-swipe-right {
 	-webkit-clip-path: polygon(85% -42%, 58% -1%, 39% 96%, -14% 298%);
+	clip-path: polygon(85% -42%, 58% -1%, 39% 96%, -14% 298%);
 	position: absolute;
 	/*background-color: #0B0064;*/
 }
