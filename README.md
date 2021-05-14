@@ -1,6 +1,9 @@
 # rock_paper_scissors_html
 Technical assesment for a job
 
+# Demo
+https://rock-paper-scissors-assignment.glitch.me/
+
 # Reqs
 Τι θέλουμε εμείς από εσας:
 1.       Να είναι responsive
